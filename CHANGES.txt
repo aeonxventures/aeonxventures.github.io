@@ -1,0 +1,14 @@
+AEONX Ventures update
+
+- Hero/header width increased on large screens to reduce excess side space.
+- Statistics updated to 11+ years, 8754+ clients, 124+ company tie-ups, and End-to-End support.
+- Count-up animation added after the opening loader finishes.
+- Marquee star symbols replaced with subtle vertical separators.
+- Marquee duplication rebuilt for smoother continuous movement.
+- Responsive stats layout added for tablet and mobile.
+
+V3 improvements:
+- Added compact functional website search in the header.
+- Improved phone/mobile header, hero, stats, contact form, and floating contact bar.
+- Replaced inactive business-mailbox message with live WhatsApp and form-delivery options.
+- Floating email icon now opens the enquiry form.
