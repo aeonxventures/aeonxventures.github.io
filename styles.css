@@ -21,7 +21,7 @@ body{
     radial-gradient(circle at 90% 18%,rgba(75,140,255,.10),transparent 30%),
     var(--bg);
   color:var(--text);
-  font-family:Inter,system-ui,sans-serif;
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
   line-height:1.6;
   overflow-x:hidden;
 }
@@ -49,7 +49,7 @@ button{color:inherit}
 .brand-mark{
   width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
   background:linear-gradient(135deg,var(--violet),var(--blue));
-  font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:22px
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;font-weight:700;font-size:22px
 }
 .brand-copy{display:flex;flex-direction:column;line-height:1}
 .brand-copy strong{font:700 17px "Space Grotesk",sans-serif;letter-spacing:.09em}
@@ -79,7 +79,7 @@ button{color:inherit}
 .eyebrow:before{
   content:"";width:24px;height:1px;background:linear-gradient(90deg,var(--violet),var(--cyan))
 }
-h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.05;margin:0}
+h1,h2,h3{font-family:"Plus Jakarta Sans",Arial,sans-serif;line-height:1.05;margin:0}
 h1{font-size:clamp(58px,7vw,102px);letter-spacing:-.055em}
 h1 span{
   color:transparent;
@@ -735,7 +735,7 @@ h1 span{
 
   color: rgba(255, 255, 255, 0.5);
 
-  font-family: "Inter", sans-serif;
+  font-family: "Plus Jakarta Sans",Arial,sans-serif;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.22em;
@@ -998,7 +998,7 @@ h1 span{
 
   color: #ffffff;
 
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Plus Jakarta Sans",Arial,sans-serif;
   font-size: 25px;
   font-weight: 700;
 }
@@ -1010,7 +1010,7 @@ h1 span{
 
   color: rgba(255, 255, 255, 0.58);
 
-  font-family: "Inter", sans-serif;
+  font-family: "Plus Jakarta Sans",Arial,sans-serif;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -1204,7 +1204,7 @@ section[id], form[id] {
 }
 
 .site-search-result strong {
-  font: 600 14px "Space Grotesk", sans-serif;
+  font: 600 14px "Plus Jakarta Sans",Arial,sans-serif;
 }
 
 .site-search-result small {
@@ -1269,7 +1269,7 @@ body.search-open { overflow: hidden; }
 
 .contact-direct strong,
 .contact-delivery-note strong {
-  font: 650 14px "Space Grotesk", sans-serif;
+  font: 650 14px "Plus Jakarta Sans",Arial,sans-serif;
 }
 
 .contact-direct small,
@@ -1386,4 +1386,1002 @@ body.search-open { overflow: hidden; }
   .hero-actions .button { width: 100%; }
   .header-logo { max-width: 128px; }
   .site-search-toggle, .menu-toggle { width: 38px; height: 38px; flex-basis: 38px; }
+}
+
+
+/* AEONX four solution systems — old website layout preserved */
+.solution-card{display:block;color:inherit}
+.solution-visual{min-height:360px;background:#0f131d}
+.solution-visual:after{display:none}
+.solution-visual img{width:100%;height:100%;min-height:360px;object-fit:cover;display:block;transition:transform .55s ease,filter .55s ease}
+.solution-card:hover .solution-visual img{transform:scale(1.035);filter:saturate(1.08)}
+.solution-number{position:absolute;right:23px;top:20px;z-index:3;min-width:48px;height:48px;padding:0 12px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(8,10,15,.52);backdrop-filter:blur(12px);font:600 12px "Space Grotesk",sans-serif;letter-spacing:.12em}
+.solution-card .work-copy{min-height:215px}
+.solution-card .work-copy p{margin:15px 0 0;color:#969faf;font-size:13px;line-height:1.7}
+.solution-link{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);color:#cfd3dd;font:600 12px "Space Grotesk",sans-serif}
+.solution-link b{color:#8d78ff;font-size:17px;transition:transform .2s ease}
+.solution-card:hover .solution-link b{transform:translate(3px,-3px)}
+
+/* Shared inner solution pages */
+.service-page{background:radial-gradient(circle at 14% 3%,rgba(124,92,255,.14),transparent 30%),radial-gradient(circle at 88% 18%,rgba(75,140,255,.1),transparent 30%),var(--bg)}
+.service-page main{overflow:hidden}
+.service-page .site-header{position:fixed}
+.service-hero{width:min(1400px,calc(100% - 56px));min-height:94vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(460px,.95fr);align-items:center;gap:72px;padding-top:150px}
+.service-hero-copy,.service-hero-media{position:relative;z-index:2}
+.service-back{display:inline-flex;margin-bottom:28px;color:#949cad;font-size:12px;font-weight:650;transition:.2s ease}
+.service-back:hover{color:#fff;transform:translateX(-4px)}
+.service-hero h1{font-size:clamp(56px,6.2vw,94px);letter-spacing:-.055em}
+.service-hero h1 span{color:transparent;background:linear-gradient(100deg,#fff 10%,#a7bdff 48%,#9676ff);background-clip:text;-webkit-background-clip:text}
+.service-hero-copy>p{max-width:690px;margin:30px 0;color:var(--muted);font-size:18px}
+.service-hero-media{min-height:570px;display:grid;place-items:center}
+.service-hero-image{position:relative;width:min(100%,580px);aspect-ratio:1.28/1;border:1px solid rgba(255,255,255,.13);border-radius:36px;overflow:hidden;background:#10141e;box-shadow:var(--shadow)}
+.service-hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+.service-hero-image:after{content:"TEMPORARY IMAGE — REPLACE LATER";position:absolute;left:20px;bottom:18px;padding:8px 11px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(8,10,15,.58);backdrop-filter:blur(12px);color:#d3d7df;font-size:9px;letter-spacing:.13em}
+.service-summary{width:min(1180px,calc(100% - 40px));margin:0 auto 20px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.026);overflow:hidden}
+.service-summary div{padding:23px;border-right:1px solid var(--line);display:flex;flex-direction:column}.service-summary div:last-child{border:0}
+.service-summary span{color:#818a9b;font-size:9px;letter-spacing:.14em;text-transform:uppercase}.service-summary strong{margin-top:7px;font:600 14px "Space Grotesk",sans-serif}
+.roadmap-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--line)}
+.roadmap-grid article{position:relative;padding:34px 18px 0 0}.roadmap-grid article:before{content:"";position:absolute;left:0;top:-6px;width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--blue));box-shadow:0 0 0 6px rgba(124,92,255,.12)}
+.roadmap-grid span{font-size:10px;color:#818a9b}.roadmap-grid h3{margin:20px 0 12px;font-size:19px}.roadmap-grid p{margin:0;color:#959eae;font-size:12px;line-height:1.65}
+.service-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service-detail-card{min-height:268px;padding:29px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));transition:.3s ease}
+.service-detail-card:hover{transform:translateY(-6px);border-color:rgba(124,92,255,.42)}
+.service-detail-card>span{color:#7f8899;font-size:10px}.service-detail-card h3{margin:47px 0 15px;font-size:22px}.service-detail-card p{margin:0;color:#969faf;font-size:13px}
+.service-outcomes{padding-top:30px}
+.outcomes-shell{padding:65px;border:1px solid var(--line);border-radius:32px;background:radial-gradient(circle at 80% 20%,rgba(124,92,255,.18),transparent 28%),linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.018));display:grid;grid-template-columns:1.1fr .9fr;gap:70px}
+.outcomes-shell h2{font-size:clamp(42px,4.8vw,67px);letter-spacing:-.045em}
+.deliverables{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 25px}
+.deliverables li{position:relative;padding:14px 0 14px 25px;border-bottom:1px solid rgba(255,255,255,.08);color:#c9ced8;font-size:13px}.deliverables li:before{content:"✓";position:absolute;left:0;color:#8f79ff}
+.ideal-client{align-self:center;padding:32px;border:1px solid rgba(255,255,255,.12);border-radius:24px;background:rgba(8,10,15,.46)}
+.ideal-client>span{color:#8e97a8;font-size:10px;letter-spacing:.14em;text-transform:uppercase}.ideal-client p{color:#e9ebf1;font-size:17px;line-height:1.7}.ideal-client a{color:#b4a8ff;font-size:12px;font-weight:700}
+.service-gallery{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:16px}
+.service-gallery figure{position:relative;min-height:390px;margin:0;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#111620}
+.service-gallery img{width:100%;height:100%;min-height:390px;object-fit:cover;display:block;opacity:.92;transition:.45s ease}.service-gallery figure:hover img{transform:scale(1.03)}
+.service-gallery figcaption{position:absolute;left:20px;right:20px;bottom:18px;padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(8,10,15,.65);backdrop-filter:blur(14px);display:flex;flex-direction:column}
+.service-gallery strong{font:600 15px "Space Grotesk",sans-serif}.service-gallery small{margin-top:4px;color:#969faf;font-size:10px}
+.other-systems{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.other-systems a{padding:23px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.026);display:grid;grid-template-columns:auto 1fr auto;gap:15px;align-items:center;transition:.25s ease}.other-systems a:hover{transform:translateY(-4px);border-color:rgba(124,92,255,.45);background:rgba(255,255,255,.045)}.other-systems span{color:#838c9d;font-size:10px}.other-systems strong{font:600 14px "Space Grotesk",sans-serif}.other-systems b{font-size:18px}
+.service-cta{padding-top:20px}.service-cta-shell{padding:65px;border-radius:32px;background:#f4f5f7;color:#0b0d12;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}.service-cta-shell h2{font-size:clamp(44px,5vw,72px);letter-spacing:-.05em}.service-cta-shell p{max-width:650px;color:#667080}.service-cta-actions{display:flex;flex-direction:column;gap:12px}.service-cta-actions .button{width:100%}.button-dark{background:#0c0e13;color:#fff}.service-cta-actions span{text-align:center;color:#7b8492;font-size:10px}
+.service-page .footer-brand img{height:40px;width:auto;max-width:210px}
+
+@media(max-width:1100px){.roadmap-grid{grid-template-columns:repeat(4,1fr);gap:30px}.roadmap-grid article{border-top:1px solid var(--line)}}
+@media(max-width:980px){.service-hero{grid-template-columns:1fr;padding-top:145px}.service-hero-media{min-height:auto}.service-summary{grid-template-columns:repeat(2,1fr)}.service-summary div:nth-child(2){border-right:0}.service-summary div:nth-child(-n+2){border-bottom:1px solid var(--line)}.service-detail-grid{grid-template-columns:repeat(2,1fr)}.outcomes-shell,.service-cta-shell{grid-template-columns:1fr}.service-gallery{grid-template-columns:1fr 1fr}.service-gallery figure:first-child{grid-column:1/-1}.other-systems{grid-template-columns:1fr}}
+@media(max-width:640px){.solution-visual,.solution-visual img{min-height:265px}.solution-card .work-copy{min-height:0}.service-hero{width:min(100% - 24px,1180px);padding-top:112px;gap:35px}.service-hero h1{font-size:clamp(45px,13vw,58px)}.service-hero-copy>p{font-size:16px}.service-hero-image{border-radius:24px}.service-summary{width:calc(100% - 28px);grid-template-columns:1fr}.service-summary div{border-right:0;border-bottom:1px solid var(--line)!important}.roadmap-grid{grid-template-columns:1fr;border-top:0}.roadmap-grid article{border-top:1px solid var(--line)}.service-detail-grid{grid-template-columns:1fr}.outcomes-shell{padding:28px;border-radius:24px}.deliverables{grid-template-columns:1fr}.service-gallery{grid-template-columns:1fr}.service-gallery figure:first-child{grid-column:auto}.service-gallery figure,.service-gallery img{min-height:300px}.service-cta-shell{padding:28px;border-radius:24px}}
+
+
+/* ==========================================================
+   CUSTOMER-FIRST HOMEPAGE + SEPARATE ABOUT PAGE
+   Existing AEONX visual language is preserved.
+   ========================================================== */
+
+/* Homepage hierarchy and scale */
+.unified-services{
+  padding-top:96px;
+  padding-bottom:104px;
+}
+.unified-services .section-heading{
+  margin-bottom:46px;
+}
+.unified-services .section-heading h2{
+  max-width:760px;
+  font-size:clamp(42px,4.8vw,66px);
+}
+.unified-services .section-heading>p{
+  max-width:320px;
+  font-size:14px;
+}
+.unified-services .solution-visual,
+.unified-services .solution-visual img{
+  min-height:300px;
+}
+.unified-services .solution-card .work-copy{
+  min-height:205px;
+}
+.process{
+  padding-top:90px;
+  padding-bottom:92px;
+}
+.process .section-heading{
+  max-width:800px;
+  margin-bottom:48px;
+}
+.process .section-heading h2{
+  font-size:clamp(42px,4.8vw,65px);
+}
+.process .section-heading>p{
+  max-width:680px;
+  color:#667080;
+}
+
+/* Compact founder proof replaces oversized homepage About block */
+.founder-preview{
+  padding-top:92px;
+  padding-bottom:92px;
+}
+.founder-preview-panel{
+  padding:58px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 82% 16%,rgba(124,92,255,.17),transparent 28%),
+    linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+.founder-preview-copy h2{
+  max-width:620px;
+  font-size:clamp(40px,4.6vw,64px);
+  letter-spacing:-.045em;
+}
+.founder-preview-copy p{
+  max-width:620px;
+  margin:22px 0 30px;
+  color:var(--muted);
+}
+.venture-name-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.venture-name-grid span{
+  min-height:61px;
+  padding:0 18px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+  display:flex;
+  align-items:center;
+  font:600 13px "Space Grotesk",sans-serif;
+  color:#d9dce4;
+}
+
+/* About page */
+.about-page{
+  background:
+    radial-gradient(circle at 12% 2%,rgba(124,92,255,.14),transparent 29%),
+    radial-gradient(circle at 90% 18%,rgba(75,140,255,.09),transparent 30%),
+    var(--bg);
+}
+.about-hero{
+  min-height:82vh;
+  padding-top:155px;
+  display:grid;
+  grid-template-columns:1.12fr .88fr;
+  gap:70px;
+  align-items:center;
+}
+.about-hero h1{
+  font-size:clamp(58px,6.6vw,96px);
+  letter-spacing:-.055em;
+}
+.about-hero h1 span{
+  color:transparent;
+  background:linear-gradient(100deg,#fff 12%,#a7bdff 48%,#9679ff);
+  background-clip:text;
+  -webkit-background-clip:text;
+}
+.about-hero-copy>p{
+  max-width:730px;
+  margin-top:28px;
+  color:var(--muted);
+  font-size:18px;
+}
+.about-hero-proof{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.about-hero-proof span{
+  min-height:100px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.018));
+  display:flex;
+  align-items:flex-end;
+  font:600 15px "Space Grotesk",sans-serif;
+}
+.founders-section{
+  padding-top:80px;
+}
+.founders-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.founder-card{
+  border:1px solid var(--line);
+  border-radius:28px;
+  overflow:hidden;
+  background:rgba(255,255,255,.024);
+}
+.founder-photo-placeholder{
+  min-height:430px;
+  padding:26px;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    radial-gradient(circle at 50% 36%,rgba(124,92,255,.28),transparent 38%),
+    #111520;
+  background-size:44px 44px,44px 44px,auto,auto;
+}
+.founder-photo-placeholder:after{
+  content:"";
+  position:absolute;
+  inset:11%;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:50% 50% 24% 24%;
+}
+.founder-photo-placeholder>span{
+  position:absolute;
+  top:24px;
+  left:25px;
+  z-index:2;
+  color:#929aaa;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.founder-photo-placeholder>strong{
+  position:relative;
+  z-index:2;
+  font:700 clamp(74px,9vw,130px) "Space Grotesk",sans-serif;
+  color:rgba(255,255,255,.72);
+}
+.founder-photo-rahul{
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    radial-gradient(circle at 50% 36%,rgba(75,140,255,.25),transparent 38%),
+    #111520;
+  background-size:44px 44px,44px 44px,auto,auto;
+}
+.founder-copy{
+  padding:30px;
+}
+.founder-copy>span{
+  color:#8c79ff;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.founder-copy h2{
+  margin-top:10px;
+  font-size:35px;
+}
+.founder-copy p{
+  font-size:14px;
+}
+.founder-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+.founder-tags span{
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:#c9ced8;
+  font-size:10px;
+}
+.founder-ventures{
+  padding-top:78px;
+}
+.venture-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.venture-card{
+  min-height:190px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:21px;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.017));
+  display:flex;
+  gap:17px;
+  align-items:flex-start;
+  transition:.28s;
+}
+.venture-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(124,92,255,.42);
+}
+.venture-logo-placeholder{
+  flex:0 0 56px;
+  width:56px;
+  height:56px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:15px;
+  background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(75,140,255,.16));
+  display:grid;
+  place-items:center;
+  font:700 17px "Space Grotesk",sans-serif;
+}
+.venture-card>div:last-child>span{
+  color:#7f8899;
+  font-size:8px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.venture-card h3{
+  margin-top:8px;
+  font-size:19px;
+}
+.venture-card p{
+  margin-bottom:0;
+  font-size:12px;
+}
+.about-company-panel{
+  padding:60px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 82% 18%,rgba(124,92,255,.17),transparent 27%),
+    linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.017));
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+}
+.about-company-panel h2{
+  font-size:clamp(42px,4.8vw,66px);
+  letter-spacing:-.045em;
+}
+.about-company-panel p{
+  font-size:15px;
+}
+.about-company-panel .button{
+  margin-top:15px;
+}
+
+@media(max-width:980px){
+  .founder-preview-panel,
+  .about-hero,
+  .about-company-panel{
+    grid-template-columns:1fr;
+  }
+  .founders-grid{
+    grid-template-columns:1fr;
+  }
+  .venture-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .unified-services .section-heading>p{
+    max-width:100%;
+  }
+}
+@media(max-width:640px){
+  .unified-services .solution-visual,
+  .unified-services .solution-visual img{
+    min-height:250px;
+  }
+  .founder-preview-panel,
+  .about-company-panel{
+    padding:28px;
+    border-radius:23px;
+  }
+  .venture-name-grid,
+  .about-hero-proof,
+  .venture-grid{
+    grid-template-columns:1fr;
+  }
+  .about-hero{
+    min-height:auto;
+    padding-top:138px;
+  }
+  .about-hero h1{
+    font-size:52px;
+  }
+  .founder-photo-placeholder{
+    min-height:340px;
+  }
+}
+
+
+/* ==========================================================
+   V2 TYPOGRAPHY + FOUNDER SECTION REFINEMENTS
+   ========================================================== */
+
+/* Global Plus Jakarta Sans refinement */
+body{
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
+  font-weight:400;
+  letter-spacing:-0.01em;
+}
+h1,h2,h3,
+.brand-copy strong,
+.work-copy h3,
+.founder-copy h2,
+.venture-card h3,
+.system-roadmap-grid h3,
+.system-gallery-card strong,
+.system-other-grid strong{
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
+}
+h1{
+  font-weight:700;
+  line-height:1.02;
+}
+h2{
+  font-weight:700;
+  line-height:1.08;
+}
+h3{
+  font-weight:600;
+  line-height:1.22;
+}
+p{
+  line-height:1.72;
+}
+.eyebrow,
+.label,
+.work-copy span,
+.venture-card>div:last-child>span,
+.founder-copy>span{
+  letter-spacing:.12em;
+}
+.site-nav{
+  font-weight:600;
+}
+.button,
+.nav-cta{
+  font-weight:700;
+}
+
+/* Better text balance across homepage */
+.hero-content>p,
+.section-heading>p,
+.founder-preview-copy p,
+.about-hero-copy>p,
+.about-company-panel p{
+  max-width:680px;
+}
+.section-heading h2{
+  max-width:820px;
+}
+.work-copy p{
+  line-height:1.65;
+}
+.work-copy h3{
+  font-size:24px;
+}
+.process-line h3{
+  font-size:22px;
+}
+.process-line p{
+  line-height:1.62;
+}
+
+/* Homepage founder preview: lower on page and more compact */
+.founder-preview{
+  padding-top:135px;
+  padding-bottom:82px;
+}
+.founder-preview-panel{
+  padding:42px 46px;
+  gap:50px;
+  border-radius:26px;
+}
+.founder-preview-copy h2{
+  max-width:560px;
+  font-size:clamp(34px,4vw,54px);
+  line-height:1.1;
+}
+.founder-preview-copy p{
+  margin:18px 0 26px;
+  font-size:14px;
+}
+.venture-name-grid{
+  gap:8px;
+}
+.venture-name-grid span{
+  min-height:52px;
+  padding:0 15px;
+  border-radius:12px;
+  font-size:12px;
+}
+
+/* About page founders: move section lower and make cards smaller */
+.founders-section{
+  padding-top:135px;
+  padding-bottom:80px;
+}
+.founders-section .section-heading{
+  margin-bottom:42px;
+}
+.founders-section .section-heading h2{
+  max-width:760px;
+  font-size:clamp(38px,4.6vw,60px);
+}
+.founder-card{
+  border-radius:24px;
+}
+.founder-photo-placeholder{
+  min-height:330px;
+  padding:22px;
+}
+.founder-photo-placeholder>strong{
+  font-size:clamp(62px,7.5vw,105px);
+}
+.founder-copy{
+  padding:24px 26px 27px;
+}
+.founder-copy h2{
+  margin-top:8px;
+  font-size:30px;
+}
+.founder-copy p{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.65;
+}
+.founder-tags{
+  margin-top:18px;
+}
+.founder-tags span{
+  padding:7px 10px;
+  font-size:9px;
+}
+
+/* Founder venture sections slightly tighter */
+.founder-ventures{
+  padding-top:70px;
+  padding-bottom:70px;
+}
+.founder-ventures .section-heading{
+  margin-bottom:40px;
+}
+.founder-ventures .section-heading h2{
+  font-size:clamp(36px,4.2vw,56px);
+}
+.venture-card{
+  min-height:165px;
+  padding:19px;
+}
+.venture-logo-placeholder{
+  flex-basis:50px;
+  width:50px;
+  height:50px;
+  border-radius:13px;
+  font-size:15px;
+}
+.venture-card h3{
+  font-size:17px;
+}
+.venture-card p{
+  font-size:11px;
+  line-height:1.58;
+}
+
+/* Mobile refinements */
+@media(max-width:640px){
+  .founder-preview{
+    padding-top:100px;
+    padding-bottom:72px;
+  }
+  .founder-preview-panel{
+    padding:26px;
+    gap:34px;
+  }
+  .founder-preview-copy h2{
+    font-size:36px;
+  }
+  .founders-section{
+    padding-top:105px;
+  }
+  .founders-section .section-heading h2{
+    font-size:39px;
+  }
+  .founder-photo-placeholder{
+    min-height:285px;
+  }
+  .founder-copy{
+    padding:22px;
+  }
+  .founder-copy h2{
+    font-size:27px;
+  }
+}
+
+
+/* ==========================================================
+   V3 PROFESSIONAL COPY & NAVIGATION REFINEMENTS
+   ========================================================== */
+.site-nav a{white-space:nowrap}
+.hero-content>p{max-width:760px;font-size:17px;line-height:1.78}
+.unified-services .work-copy p{min-height:70px;font-size:13px;line-height:1.72}
+.solution-link{margin-top:18px;letter-spacing:0}
+.process-line p{font-size:12px;line-height:1.7}
+.contact-copy>p{max-width:560px;line-height:1.75}
+.about-hero-copy>p,.founder-copy p,.about-company-panel p{line-height:1.75}
+.business-system-page .system-hero-copy>p{max-width:720px;line-height:1.78}
+.business-system-page .system-roadmap-grid p,
+.business-system-page .detail-card p{line-height:1.7}
+@media(max-width:1120px){
+  .site-nav{gap:18px;font-size:11px}
+  .nav-cta{padding-inline:15px}
+}
+
+
+/* ==========================================================
+   V4 — LIGHTER TYPOGRAPHY & BETTER HEADING SCALE
+   ========================================================== */
+
+body{
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
+  font-weight:400;
+  letter-spacing:-0.012em;
+}
+
+h1,h2,h3,
+.brand-copy strong,
+.work-copy h3,
+.founder-copy h2,
+.venture-card h3,
+.system-roadmap-grid h3,
+.system-gallery-card strong,
+.system-other-grid strong{
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
+}
+
+h1{
+  font-size:clamp(48px,5.25vw,80px);
+  line-height:1.07;
+  letter-spacing:-.047em;
+  font-weight:700;
+}
+
+h2{
+  line-height:1.11;
+  letter-spacing:-.038em;
+  font-weight:700;
+}
+
+h3{
+  line-height:1.28;
+  letter-spacing:-.025em;
+  font-weight:600;
+}
+
+/* Homepage hero */
+.hero{
+  grid-template-columns:1.08fr .92fr;
+  gap:58px;
+}
+.hero-content h1{
+  max-width:760px;
+}
+.hero-content>p{
+  max-width:710px;
+  margin-top:25px;
+  font-size:16px;
+  line-height:1.75;
+}
+.hero-actions{
+  margin-top:28px;
+}
+
+/* General section-heading hierarchy */
+.section-heading h2,
+.unified-services .section-heading h2,
+.process .section-heading h2{
+  max-width:760px;
+  font-size:clamp(36px,4vw,56px);
+  line-height:1.12;
+}
+.section-heading>p,
+.unified-services .section-heading>p{
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* Services */
+.work-copy h3{
+  font-size:21px;
+  line-height:1.3;
+}
+.unified-services .work-copy p{
+  min-height:0;
+  font-size:12.5px;
+  line-height:1.68;
+}
+
+/* Process */
+.process-line h3{
+  font-size:19px;
+}
+.process-line p{
+  font-size:11.5px;
+}
+
+/* Homepage compact founder proof */
+.founder-preview-copy h2{
+  max-width:560px;
+  font-size:clamp(32px,3.5vw,48px);
+  line-height:1.15;
+}
+
+/* About page hero */
+.about-hero h1{
+  max-width:800px;
+  font-size:clamp(48px,5.4vw,78px);
+  line-height:1.08;
+}
+.about-hero-copy>p{
+  max-width:700px;
+  font-size:16px;
+}
+
+/* Founder section */
+.founders-section .section-heading h2{
+  max-width:720px;
+  font-size:clamp(34px,3.7vw,52px);
+}
+.founder-copy h2{
+  font-size:27px;
+}
+
+/* Venture portfolio headings — previously oversized */
+.founder-ventures .section-heading{
+  max-width:none;
+  align-items:flex-end;
+}
+.founder-ventures .section-heading>div{
+  max-width:680px;
+}
+.founder-ventures .section-heading h2{
+  max-width:650px;
+  font-size:clamp(34px,3.25vw,48px);
+  line-height:1.14;
+}
+.founder-ventures .section-heading>p{
+  max-width:410px;
+  font-size:13px;
+}
+
+/* Inner service pages */
+.business-system-page .system-hero h1,
+.service-page .service-hero h1{
+  max-width:760px;
+  font-size:clamp(46px,5vw,74px);
+  line-height:1.08;
+}
+.business-system-page .system-hero-copy>p,
+.service-page .service-hero-copy>p{
+  font-size:16px;
+}
+.business-system-page .system-roadmap-grid h3{
+  font-size:19px;
+}
+
+/* Contact */
+.contact-copy h2{
+  font-size:clamp(38px,4vw,58px);
+}
+.contact-copy>p{
+  font-size:14px;
+}
+
+/* Navigation text slightly lighter */
+.site-nav{
+  font-weight:600;
+  letter-spacing:-.015em;
+}
+.site-nav a{
+  font-size:12px;
+}
+
+/* Tablet */
+@media(max-width:980px){
+  .hero{
+    grid-template-columns:1fr;
+  }
+  .hero-content h1{
+    max-width:830px;
+  }
+  .founder-ventures .section-heading{
+    display:block;
+  }
+  .founder-ventures .section-heading>p{
+    margin-top:18px;
+  }
+}
+
+/* Mobile */
+@media(max-width:640px){
+  h1{
+    font-size:clamp(42px,12vw,56px);
+    line-height:1.08;
+  }
+  .hero-content>p{
+    font-size:14px;
+  }
+  .section-heading h2,
+  .unified-services .section-heading h2,
+  .process .section-heading h2{
+    font-size:clamp(32px,9vw,42px);
+  }
+  .about-hero h1,
+  .business-system-page .system-hero h1,
+  .service-page .service-hero h1{
+    font-size:clamp(40px,11vw,52px);
+  }
+  .founder-ventures .section-heading h2{
+    font-size:34px;
+  }
+  .founder-preview-copy h2{
+    font-size:34px;
+  }
+}
+
+
+/* ==========================================================
+   V5 — REAL HOMEPAGE SERVICE IMAGES
+   ========================================================== */
+.unified-services .solution-visual{
+  position:relative;
+  overflow:hidden;
+  background:#0d1119;
+}
+.unified-services .solution-visual:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(6,8,13,.04) 45%,rgba(6,8,13,.38) 100%),
+    linear-gradient(90deg,rgba(82,67,190,.08),transparent 40%);
+}
+.unified-services .solution-visual img{
+  width:100%;
+  height:100%;
+  min-height:300px;
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(.92) contrast(1.03) brightness(.88);
+}
+.unified-services .solution-card:hover .solution-visual img{
+  transform:scale(1.055);
+  filter:saturate(1) contrast(1.05) brightness(.96);
+}
+.unified-services .solution-number{
+  z-index:3;
+}
+@media(max-width:640px){
+  .unified-services .solution-visual img{
+    min-height:250px;
+  }
+}
+
+
+/* ==========================================================
+   V6 — REAL FOUNDER PHOTOS (AHSAAN + RAHUL)
+   ========================================================== */
+.founder-preview-side{
+  display:grid;
+  gap:16px;
+}
+.founder-mini-row{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.founder-mini-card{
+  min-height:96px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+  background:rgba(255,255,255,.03);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.founder-mini-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(124,92,255,.35);
+  background:rgba(255,255,255,.045);
+}
+.founder-mini-card img{
+  width:62px;
+  height:62px;
+  border-radius:16px;
+  object-fit:cover;
+  object-position:center;
+  border:1px solid rgba(255,255,255,.08);
+  flex-shrink:0;
+}
+.founder-mini-card strong{
+  display:block;
+  margin-bottom:4px;
+  font:700 14px "Montserrat", "Plus Jakarta Sans", Arial, sans-serif;
+  color:#f2f4f8;
+}
+.founder-mini-card span{
+  display:block;
+  font-size:12px;
+  color:#98a2b3;
+}
+.founder-photo-real{
+  padding:0;
+  background:#0f131d;
+}
+.founder-photo-real:after{
+  display:none;
+}
+.founder-photo-real > img{
+  width:100%;
+  height:100%;
+  min-height:330px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  filter:saturate(.98) contrast(1.02) brightness(.94);
+}
+.founder-photo-overlay{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  z-index:2;
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(8,10,16,.12),rgba(8,10,16,.68));
+  backdrop-filter:blur(8px);
+}
+.founder-photo-overlay span{
+  position:static;
+  display:block;
+  color:#ffffff;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  text-transform:none;
+  margin:0 0 4px;
+}
+.founder-photo-overlay strong{
+  position:static;
+  display:block;
+  font:600 12px "Montserrat", "Plus Jakarta Sans", Arial, sans-serif;
+  color:#c8ceda;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+@media (max-width: 980px){
+  .founder-mini-row{
+    grid-template-columns:1fr;
+  }
+}
+@media (max-width: 640px){
+  .founder-mini-card{
+    min-height:88px;
+  }
+  .founder-mini-card img{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+  }
+  .founder-photo-real > img{
+    min-height:290px;
+  }
+  .founder-photo-overlay{
+    left:14px;
+    right:14px;
+    bottom:14px;
+    padding:12px 14px;
+  }
+  .founder-photo-overlay span{
+    font-size:15px;
+  }
 }
