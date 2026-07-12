@@ -1,214 +1,147 @@
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.site-nav');
 
-menuButton?.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-  document.body.classList.toggle('menu-open', isOpen);
-});
-
-document.querySelectorAll('.site-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('menu-open');
+const siteLoader=document.getElementById('siteLoader');
+if(siteLoader){
+  document.body.classList.add('loader-active');
+  window.addEventListener('load',()=>{
+    window.setTimeout(()=>{
+      siteLoader.classList.add('is-hidden');
+      document.body.classList.remove('loader-active');
+      window.dispatchEvent(new CustomEvent('aeonx:loader-hidden'));
+      window.setTimeout(()=>siteLoader.remove(),700);
+    },1800);
   });
-});
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-const glow = document.querySelector('.cursor-glow');
-window.addEventListener('pointermove', (event) => {
-  if (!glow) return;
-  glow.style.left = `${event.clientX}px`;
-  glow.style.top = `${event.clientY}px`;
-});
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// AEONX Loader
-window.addEventListener("load", () => {
-  const loader = document.getElementById("siteLoader");
-
-  if (!loader) return;
-
-  setTimeout(() => {
-    loader.classList.add("is-hidden");
-
-    setTimeout(() => {
-      loader.remove();
-    }, 700);
-  }, 2000);
-});
-
-// International Phone Number Field
-const phoneInput = document.getElementById("phone");
-const fullPhoneInput = document.getElementById("fullPhone");
-const phoneError = document.getElementById("phoneError");
-
-const phoneIti =
-  phoneInput && window.intlTelInput
-    ? window.intlTelInput(phoneInput, {
-        initialCountry: "in",
-        separateDialCode: true,
-        countrySearch: true,
-        strictMode: true,
-
-        loadUtils: () =>
-          import(
-            "https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.1/build/js/utils.js"
-          )
-      })
-    : null;
-    
-// Contact Form Submit Animation
-const contactForm = document.getElementById("contactForm");
-const submitOverlay = document.getElementById("submitOverlay");
-const submitSpinner = document.getElementById("submitSpinner");
-const submitCheck = document.getElementById("submitCheck");
-const submitTitle = document.getElementById("submitTitle");
-const submitMessage = document.getElementById("submitMessage");
-
-contactForm?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const submitButton = contactForm.querySelector(
-    'button[type="submit"]'
-  );
-
-  // Sending animation show karo
-  submitOverlay.classList.add("is-visible");
-  submitOverlay.setAttribute("aria-hidden", "false");
-
-  submitSpinner.classList.remove("is-hidden");
-  submitCheck.classList.remove("is-visible");
-
-  submitTitle.textContent = "Sending Enquiry";
-  submitMessage.textContent =
-    "Please wait while we send your details.";
-
-  submitButton.disabled = true;
-
-  try {
-    const formData = new FormData(contactForm);
-    const formValues = Object.fromEntries(formData.entries());
-
-    const ajaxEndpoint = contactForm.action.replace(
-      "https://formsubmit.co/",
-      "https://formsubmit.co/ajax/"
-    );
-
-    const response = await fetch(ajaxEndpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(formValues)
-    });
-
-    if (!response.ok) {
-      throw new Error("Form submission failed");
-    }
-
-    // Green tick show karo
-    submitSpinner.classList.add("is-hidden");
-    submitCheck.classList.add("is-visible");
-
-    submitTitle.textContent = "Enquiry Sent Successfully";
-    submitMessage.textContent =
-      "Thank you. Our team will contact you shortly.";
-
-    contactForm.reset();
-
-    // 1.6 seconds baad overlay hide aur Home par return
-    setTimeout(() => {
-      submitOverlay.classList.remove("is-visible");
-      submitOverlay.setAttribute("aria-hidden", "true");
-
-      document.getElementById("home")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-
-      submitButton.disabled = false;
-    }, 1600);
-  } catch (error) {
-    console.error(error);
-
-    submitSpinner.classList.add("is-hidden");
-
-    submitTitle.textContent = "Unable to Send";
-    submitMessage.textContent =
-      "Please check your internet connection and try again.";
-
-    setTimeout(() => {
-      submitOverlay.classList.remove("is-visible");
-      submitOverlay.setAttribute("aria-hidden", "true");
-      submitButton.disabled = false;
-    }, 2200);
-  }
-});
-
-// Hero statistics count-up animation
-function initHeroStatCounters() {
-  const counters = document.querySelectorAll(".stat-counter");
-  if (!counters.length) return;
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const animateCounter = (counter) => {
-    if (counter.dataset.counted === "true") return;
-    counter.dataset.counted = "true";
-
-    const target = Number(counter.dataset.target || 0);
-    const suffix = counter.dataset.suffix || "";
-
-    if (reduceMotion) {
-      counter.textContent = `${target}${suffix}`;
-      return;
-    }
-
-    const duration = target > 1000 ? 1900 : 1450;
-    const startTime = performance.now();
-
-    const update = (now) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      const value = Math.floor(target * eased);
-      counter.textContent = `${value}${suffix}`;
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = `${target}${suffix}`;
-      }
-    };
-
-    requestAnimationFrame(update);
-  };
-
-  const statObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      animateCounter(entry.target);
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.45 });
-
-  counters.forEach((counter) => statObserver.observe(counter));
 }
 
-// Start after the opening loader has faded, so visitors can see the count-up.
-window.addEventListener("load", () => {
-  window.setTimeout(initHeroStatCounters, 2750);
+const header=document.querySelector('.site-header');const menu=document.querySelector('.menu-toggle');const nav=document.querySelector('.site-nav');
+function closeMenu(){nav?.classList.remove('open');document.body.classList.remove('menu-open');menu?.setAttribute('aria-expanded','false')}
+menu?.addEventListener('click',()=>{const open=nav.classList.toggle('open');document.body.classList.toggle('menu-open',open);menu.setAttribute('aria-expanded',String(open))});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+window.addEventListener('scroll',()=>header?.classList.toggle('scrolled',window.scrollY>12),{passive:true});
+document.querySelectorAll('#year').forEach(el=>el.textContent=new Date().getFullYear());
+const revealObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+const counters=[...document.querySelectorAll('[data-count]')];
+let countersStarted=false;
+
+function animateBusinessCounters(){
+  if(countersStarted || !counters.length)return;
+  countersStarted=true;
+
+  counters.forEach((el,index)=>{
+    const target=Number(el.dataset.count||0);
+    const suffix=el.dataset.suffix||'';
+    const duration=2200+(index*180);
+    const delay=index*120;
+
+    window.setTimeout(()=>{
+      const start=performance.now();
+
+      function tick(now){
+        const progress=Math.min((now-start)/duration,1);
+        const eased=1-Math.pow(1-progress,4);
+        const value=Math.round(target*eased);
+        el.textContent=String(value)+suffix;
+
+        if(progress<1){
+          requestAnimationFrame(tick);
+        }else{
+          el.textContent=String(target)+suffix;
+          el.closest('.metric-card')?.classList.add('count-complete');
+        }
+      }
+
+      requestAnimationFrame(tick);
+    },delay);
+  });
+}
+
+window.addEventListener('aeonx:loader-hidden',()=>window.setTimeout(animateBusinessCounters,180),{once:true});
+window.addEventListener('load',()=>{
+  if(!siteLoader)window.setTimeout(animateBusinessCounters,300);
+  window.setTimeout(animateBusinessCounters,3200);
+},{once:true});
+const sections=[...document.querySelectorAll('main section[id]')];const navLinks=[...document.querySelectorAll('.site-nav a[href*="#"]')];const activeObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const id=entry.target.id;navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href').endsWith('#'+id)))}})},{rootMargin:'-35% 0px -55% 0px'});sections.forEach(s=>activeObserver.observe(s));
+
+
+// Testimonial region tabs, arrows, auto-scroll and mobile swipe.
+const testimonialSection=document.querySelector('.testimonials-section');
+if(testimonialSection){
+  const tabs=[...testimonialSection.querySelectorAll('[data-testimonial-tab]')];
+  const panels=[...testimonialSection.querySelectorAll('[data-testimonial-panel]')];
+  const prevButton=testimonialSection.querySelector('[data-testimonial-prev]');
+  const nextButton=testimonialSection.querySelector('[data-testimonial-next]');
+  let activeRegion='india';
+  let autoTimer=null;
+  let paused=false;
+
+  function activePanel(){
+    return testimonialSection.querySelector(`[data-testimonial-panel="${activeRegion}"]`);
+  }
+
+  function cardStep(track){
+    const card=track?.querySelector('.testimonial-card');
+    if(!card)return 320;
+    const gap=parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap||0);
+    return card.getBoundingClientRect().width+gap;
+  }
+
+  function moveTestimonials(direction){
+    const track=activePanel()?.querySelector('.testimonial-track');
+    if(!track)return;
+    const step=cardStep(track);
+    const max=track.scrollWidth-track.clientWidth;
+    if(direction>0 && track.scrollLeft>=max-step*.55){
+      track.scrollTo({left:0,behavior:'smooth'});
+    }else if(direction<0 && track.scrollLeft<=step*.35){
+      track.scrollTo({left:max,behavior:'smooth'});
+    }else{
+      track.scrollBy({left:direction*step,behavior:'smooth'});
+    }
+  }
+
+  function selectRegion(region){
+    activeRegion=region;
+    tabs.forEach(tab=>{
+      const selected=tab.dataset.testimonialTab===region;
+      tab.classList.toggle('active',selected);
+      tab.setAttribute('aria-selected',String(selected));
+    });
+    panels.forEach(panel=>{
+      const selected=panel.dataset.testimonialPanel===region;
+      panel.classList.toggle('active',selected);
+      panel.hidden=!selected;
+      if(selected){
+        panel.querySelector('.testimonial-track')?.scrollTo({left:0});
+      }
+    });
+    restartAuto();
+  }
+
+  function restartAuto(){
+    window.clearInterval(autoTimer);
+    autoTimer=window.setInterval(()=>{
+      if(!paused && !document.hidden)moveTestimonials(1);
+    },4200);
+  }
+
+  tabs.forEach(tab=>tab.addEventListener('click',()=>selectRegion(tab.dataset.testimonialTab)));
+  prevButton?.addEventListener('click',()=>moveTestimonials(-1));
+  nextButton?.addEventListener('click',()=>moveTestimonials(1));
+
+  testimonialSection.addEventListener('mouseenter',()=>paused=true);
+  testimonialSection.addEventListener('mouseleave',()=>paused=false);
+  testimonialSection.addEventListener('focusin',()=>paused=true);
+  testimonialSection.addEventListener('focusout',()=>paused=false);
+
+  restartAuto();
+}
+
+
+// Optional image fallback: replace broken content visuals with an AEONX icon panel.
+document.querySelectorAll('img[data-fallback-icon]').forEach(image=>{
+  image.addEventListener('error',()=>{
+    const fallback=document.createElement('div');
+    fallback.className='image-icon-fallback';
+    fallback.innerHTML=`<img src="${image.dataset.fallbackIcon}" alt=""><span>AEONX VISUAL</span>`;
+    image.replaceWith(fallback);
+  },{once:true});
 });
