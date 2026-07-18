@@ -381,3 +381,82 @@ aeonxContactForm?.addEventListener('submit', async (event) => {
     }
   }
 });
+
+
+// Final floating header search.
+(() => {
+  const toggle = document.querySelector('.header-search');
+  const panel = document.getElementById('pageSearch');
+  const input = document.getElementById('pageSearchInput');
+  const close = document.getElementById('pageSearchClose');
+  const results = document.getElementById('pageSearchResults');
+  if (!toggle || !panel || !input || !results) return;
+
+  const headings = [...document.querySelectorAll('main h1, main h2, main h3')].map((el, i) => {
+    if (!el.id) el.id = `page-section-${i+1}`;
+    return { title: el.textContent.trim(), id: el.id };
+  });
+
+  const render = q => {
+    const query = q.trim().toLowerCase();
+    const matches = headings.filter(x => !query || x.title.toLowerCase().includes(query)).slice(0,8);
+    results.innerHTML = matches.length
+      ? matches.map(x => `<a href="#${x.id}">${x.title}</a>`).join('')
+      : '<span style="padding:12px;color:#98a2b3;font-size:13px">No matching section found.</span>';
+  };
+
+  const open = () => {
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden','false');
+    input.focus();
+    render(input.value);
+  };
+  const shut = () => {
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden','true');
+  };
+
+  toggle.addEventListener('click', () => panel.classList.contains('open') ? shut() : open());
+  close?.addEventListener('click', shut);
+  input.addEventListener('input', () => render(input.value));
+  results.addEventListener('click', e => { if (e.target.closest('a')) shut(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') shut(); });
+})();
+
+// Cursor-follow background glow for pointer devices.
+(() => {
+  const glow = document.querySelector('.cursor-glow');
+  if (!glow || !window.matchMedia('(pointer:fine)').matches) return;
+  document.addEventListener('pointermove', e => {
+    glow.style.left = `${e.clientX}px`;
+    glow.style.top = `${e.clientY}px`;
+    document.body.classList.add('cursor-active');
+  }, { passive:true });
+  document.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+})();
+
+// Prevent past dates in the call booking field.
+(() => {
+  const dateInput = document.querySelector('input[name="preferred_date"]');
+  if (!dateInput) return;
+  const today = new Date();
+  const local = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+  dateInput.min = local;
+})();
+
+
+// Remove blank optional contact and booking fields before submission.
+document.getElementById('contactForm')?.addEventListener('formdata', (event) => {
+  const data = event.formData;
+  const optionalFields = ['phone', 'preferred_date', 'preferred_time'];
+
+  optionalFields.forEach((name) => {
+    const value = String(data.get(name) || '').trim();
+    if (!value) data.delete(name);
+  });
+
+  // Country code is not useful when no phone number was entered.
+  if (!String(data.get('phone') || '').trim()) {
+    data.delete('country_code');
+  }
+});
